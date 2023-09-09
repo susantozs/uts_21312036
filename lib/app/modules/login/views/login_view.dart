@@ -42,7 +42,7 @@ class LoginView extends GetView<LoginController> {
             ),
             ElevatedButton(
                 onPressed: () =>
-                    cAuth.Login(controller.cEmail.text, controller.cPass.text),
+                    cAuth.login(controller.cEmail.text, controller.cPass.text),
                 child: Text("Login")),
             SizedBox(
               height: 10,
@@ -56,7 +56,18 @@ class LoginView extends GetView<LoginController> {
                   child: Text("Daftar disini"),
                 )
               ],
-            )
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            ElevatedButton(
+              onPressed: () => cAuth.LoginGoogle(),
+              child: Text("Login with Google"),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.red,
+                foregroundColor: Colors.white,
+              ),
+            ),
           ],
         ),
       ),

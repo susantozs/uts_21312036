@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:project_get/app/modules/add_mahasiswa/views/add_mahasiswa_view.dart';
+import 'package:project_get/app/modules/update_mahasiswa/views/update_mahasiswa_view.dart';
 
 import '../modules/add_product/bindings/add_product_binding.dart';
 import '../modules/add_product/views/add_product_view.dart';
@@ -50,6 +52,16 @@ class AppPages {
       name: _Paths.UPDATE_PRODUCT,
       page: () => const UpdateProductView(),
       binding: UpdateProductBinding(),
+    ),
+    GetPage(
+      name: _Paths.ADD_MAHASISWA,
+      page: () => const AddMahasiswaView(),
+      binding: AddMahasiswaBinding(),
+    ),
+    GetPage(
+      name: _Paths.UPDATE_MAHASISWA,
+      page: () => const UpdateMahasiswaView(),
+      binding: UpdateMahasiswaBinding(),
     ),
   ];
 }

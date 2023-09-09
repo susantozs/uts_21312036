@@ -25,7 +25,18 @@ class HomeView extends GetView<HomeController> {
           ListTile(
             onTap: () {
               Get.back();
+              Get.toNamed(
+                Routes.UPDATE_MAHASISWA,
+                arguments: id,
+              );
+            },
+            title: Text('Update'),
+          ),
+          ListTile(
+            onTap: () {
+              Get.back();
               controller.deleteProducts(id);
+              controller.deleteMahasiswa(id);
             },
             title: Text('Delete'),
           ),
@@ -52,30 +63,6 @@ class HomeView extends GetView<HomeController> {
           )
         ],
       ),
-      // 1. Menampilkan data tidak realtime
-      // body: FutureBuilder<QuerySnapshot<Object?>>(
-      //   future: controller.GetData(),
-      //   builder: (context, snapshot) {
-      //     if (snapshot.connectionState == ConnectionState.done) {
-      //       // mengambil data
-      //       var listAllDocs = snapshot.data!.docs;
-      //       return ListView.builder(
-      //         itemCount: listAllDocs.length,
-      //         itemBuilder: (context, index) => ListTile(
-      //           title: Text(
-      //               "${(listAllDocs[index].data() as Map<String, dynamic>)["name"]}"),
-      //           subtitle: Text(
-      //               "${(listAllDocs[index].data() as Map<String, dynamic>)["price"]}"),
-      //         ),
-      //       );
-      //     }
-      //     return Center(
-      //       child: CircularProgressIndicator(),
-      //     );
-      //   },
-      // ),
-
-      // 2. menampilkan data realtime
       body: StreamBuilder<QuerySnapshot<Object?>>(
         stream: controller.streamData(),
         builder: (context, snapshot) {
